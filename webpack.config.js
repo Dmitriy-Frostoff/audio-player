@@ -32,13 +32,13 @@ module.exports = {
         // desired folder for path start
         .indexOf('src');
         
-        const filepath = path
-          // pathData.filename is current full path from webpack.config.js
-          .dirname(pathData.filename)
-          // path.posix.sep === / in windows
-          .split(`${path.posix.sep}`)
-          .slice(filepathStartIndex)
-          .join(`${path.posix.sep}`);
+      const filepath = path
+        // pathData.filename is current full path from webpack.config.js
+        .dirname(pathData.filename)
+        // path.posix.sep === / in windows
+        .split(`${path.posix.sep}`)
+        .slice(filepathStartIndex)
+        .join(`${path.posix.sep}`);
       return `${filepath}${path.posix.sep}[name].[hash:4][ext][query]`;
     },
   },
@@ -63,7 +63,7 @@ module.exports = {
         loader: 'html-loader',
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(c|sc|sa)ss$/i,
         use: [
             MiniCssExtractPlugin.loader,
            'css-loader',
