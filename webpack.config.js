@@ -43,14 +43,15 @@ module.exports = {
     },
   },
   devServer: {
-    compress: true, // TODO experiment one for me! may cause problems!
+    // compress: true, // TODO experiment one for me! may cause problems!
     port: 8080,
     host: 'localhost',
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'audio-player/src/components/index.html'),
-      inject: 'head',
+      // inject: 'head', 
+      inject: 'body',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:4].css',

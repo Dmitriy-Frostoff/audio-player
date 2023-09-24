@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "San Francisco Pro Display";
+  src: local("San Francisco Pro Display"),
+  url("../../assets/fonts/SF-Pro-Display-Regular.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "San Francisco Pro Display";
+  src: local("San Francisco Pro Display"),
+  url("../../assets/fonts/SF-Pro-Display-Medium.otf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "San Francisco Pro Display";
+  src: local("San Francisco Pro Display"),
+  url("../../assets/fonts/SF-Pro-Display-Semibold.otf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "San Francisco Pro Display";
+  src: local("San Francisco Pro Display"),
+  url("../../assets/fonts/SF-Pro-Display-Bold.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+$title-h1_desktop: 30px;
+
+$text-fsize-XL: 26px;
+$text-fsize-L: 18px;
+$text-fsize-M: 16px;
+$text-fsize-S: 14px;
+$text-fsize-XS: 12px;

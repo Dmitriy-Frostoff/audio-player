@@ -1,0 +1,610 @@
+* {
+  // Position
+
+  // block-model
+  box-sizing: border-box;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+html {
+  // Position
+
+  // block-model
+  scroll-behavior: smooth;
+  // Typography
+  font-size: 16px;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+body {
+  // Position
+
+  // block-model
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  font-size: 16px;
+  // Decoration
+
+  // Animation
+
+  // Various
+  
+}
+
+.link { 
+  // Position
+
+  // block-model
+  width: inherit;
+  height: inherit;
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $text-fsize-L, $style: normal, $weight: 400, $height: normal);
+  line-height: 50px;
+  // Decoration
+  color: $color-light;
+  // Animation
+  @extend %transition-basic;
+  @extend %cursor-pointer;
+  
+  // Various
+  &:hover, &:active {
+    @extend %transition-basic;
+  }
+  
+  &:hover {
+    @extend %transition-basic;
+    color: $color-interactive;
+    border-radius: inherit;
+  }
+
+  &:active {
+    @extend %transition-basic;
+    color: $color-interactive;
+    border-radius: inherit;
+  }
+}
+
+.title {
+  // Position
+
+  // block-model
+  @extend %reset-padding-margin;
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $title-h1_desktop, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+  // Animation
+
+  // Various
+
+}
+
+.title-h1 {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $title-h1_desktop, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+
+  // Animation
+
+  // Various
+
+}
+
+.text-xl {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $text-fsize-XL, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+
+  // Animation
+
+  // Various
+
+}
+
+.text-l {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $text-fsize-L, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+
+  // Animation
+
+  // Various
+
+}
+
+.text-m {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $text-fsize-M, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+
+  // Animation
+
+  // Various
+
+}
+
+.text-s {
+  // Position
+
+  // block-model
+
+  // Typography
+  @extend %font-SF-Pro-Display;
+  @include text ($size: $text-fsize-S, $style: normal, $weight: 400, $height: normal);
+
+  // Decoration
+  color: $color-light;
+
+  // Animation
+
+  // Various
+
+}
+
+
+.code, p, pre, nav, ul, li, h1, h2, h3, h4, h5 {
+   // Position
+
+  // block-model
+  @extend %reset-padding-margin;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+li {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  list-style: none;
+  // Animation
+
+  // Various
+
+}
+
+a {
+   // Position
+
+  // block-model
+  display: inline-block;
+  @extend %reset-padding-margin;
+
+  // Typography
+  color: $color-light;
+  // Decoration
+  text-decoration: none;
+  @extend %cursor-pointer;
+  
+  // Animation
+
+  // Various
+  & :visited {
+    color: $color-light;
+  }
+}
+
+img {
+  // Position
+  @extend %reset-padding-margin;
+
+  // block-model
+  display: block;
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.container {
+  // Position
+
+  // block-model
+  margin: 0 auto;
+  
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+  @include media-wide-desktop {
+    max-width: $width-desktop;
+  }
+
+  @include media-desktop {
+    padding: 0 $padding-content-desktop;
+  }
+  
+  @include media-tablet {
+    padding: 0 $padding-content-tablet;
+  }
+  
+  @include media-mobile {
+    padding: 0 $padding-content-mobile;
+  }
+  
+}
+
+// ==============================================================================================================
+// =========================================== modificators!!! Priority over above ==============================
+// ==============================================================================================================
+
+.text_light {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-light;
+  // Animation
+
+  // Various
+
+}
+
+.text_dark {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-dark;
+  // Animation
+
+  // Various
+
+}
+
+.text_interactive {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-interactive;
+  // Animation
+
+  // Various
+
+}
+
+.text_dark {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-dark;
+  // Animation
+
+  // Various
+
+}
+
+.text_light {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-light;
+  // Animation
+
+  // Various
+
+}
+
+.text_light-details {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-light-details;
+  // Animation
+
+  // Various
+
+}
+
+.text_dark-details {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  color: $color-dark-details;
+  // Animation
+
+  // Various
+
+}
+
+.text_uppercase {
+  // Position
+
+  // block-model
+
+  // Typography
+  text-transform: uppercase;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_capitalize {
+  // Position
+
+  // block-model
+
+  // Typography
+  text-transform: capitalize;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_fweight700 {
+  // Position
+
+  // block-model
+
+  // Typography
+  font-weight: 700;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_fweight600 {
+  // Position
+
+  // block-model
+
+  // Typography
+  font-weight: 600;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_fweight500 {
+  // Position
+
+  // block-model
+
+  // Typography
+  font-weight: 500;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_center {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+  @include media-tablet-large {
+    // Position
+
+    // block-model
+
+    // Typography
+    text-align: center;
+    // Decoration
+
+    // Animation
+
+    // Various
+  }
+}
+
+.text_let-space-1px {
+  // Position
+
+  // block-model
+
+  // Typography
+  letter-spacing: 1px;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_let-space-0d13px {
+  // Position
+
+  // block-model
+
+  // Typography
+  letter-spacing: 0.13px;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_let-space-0d8px {
+  // Position
+
+  // block-model
+
+  // Typography
+  letter-spacing: 0.8px;
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.text_height-normal {
+  // Position
+
+  // block-model
+
+  // Typography
+  line-height: normal;
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.hidden {
+  // Position
+  
+  // block-model
+  display: none;
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+._overflow-hidden {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+  @include media-tablet-large {
+    // Position
+
+    // block-model
+
+    // Typography
+
+    // Decoration
+    overflow: hidden;
+
+    // Animation
+
+    // Various
+  }
+}
