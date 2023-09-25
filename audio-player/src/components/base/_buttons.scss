@@ -134,6 +134,39 @@
   }
 }
 
+.button-stop {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+
+  // Animation
+
+  // Various
+
+}
+
+.button-stop-inner {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  @extend %pointer-events-disable;
+
+  // Animation
+  @extend %transition-basic;
+  // Various
+  & > path {
+    fill: $color-light-details;
+  }
+}
+
 .button-next {
   // Position
 

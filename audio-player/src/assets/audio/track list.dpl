@@ -1,7 +1,7 @@
 ﻿DAUMPLAYLIST
-playname=E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Axel Rudi Pell 1991 - Nasty Reputation\02. Nasty Reputation.mp3
-playtime=151090
-topindex=0
+playname=E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
+playtime=207583
+topindex=6
 1*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Giant 1990 - Time To Burn\01. Thunder And Lightning.mp3
 1*played*1
 1*duration2*263000
@@ -11,7 +11,7 @@ topindex=0
 3*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Axel Rudi Pell 1991 - Nasty Reputation\02. Nasty Reputation.mp3
 3*played*1
 3*duration2*250000
-3*start*151090
+3*start*627
 4*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Motley Crue 1987 - Girls, Girls, Girls\02 - Girls, Girls, Girls.mp3
 4*played*1
 4*duration2*270000
@@ -63,12 +63,13 @@ topindex=0
 20*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Wasp 1992 -The Crimson Idol\09. Hold On To My Heart (1992 -The Crimson Idol).mp3
 20*played*1
 20*duration2*262000
-21*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Corey Taylor\Corey Taylor - Wicked Game (Acoustic).mp3
+21*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Stone Sour 2006 - Come What (Ever) May\14. Stone Sour - Wicked Game (Acoustic).mp3
 21*played*1
 21*duration2*267000
 22*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
 22*played*1
 22*duration2*275000
+22*start*207583
 23*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Whitesnake 2014 -Best Ballads\05. Til The End Of Time.mp3
 23*played*1
 23*duration2*335000

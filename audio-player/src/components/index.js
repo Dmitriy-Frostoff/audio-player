@@ -9,6 +9,9 @@ import { footerHTMLSection } from './components/footer/footer';
 // self - check
 import { audioPlayerSelfCheck } from './audioPlayerSelfCheck/audioPlayerSelfCheck';
 
+// logic and utilities
+import { audioPlayerHandler } from './components/audio-player/audioPlayerLogic';
+
 // HTML elements
 const body = document.querySelector('body');
 
@@ -22,5 +25,5 @@ body.append(footerHTMLSection);
 
 // functions realization
 window.addEventListener('load', () => {
-  
+  audioPlayerHandler();
 })
