@@ -95,7 +95,7 @@ body {
   @include text ($size: $title-h1_desktop, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
   // Animation
 
   // Various
@@ -112,7 +112,7 @@ body {
   @include text ($size: $title-h1_desktop, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
 
   // Animation
 
@@ -130,7 +130,7 @@ body {
   @include text ($size: $text-fsize-XL, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
 
   // Animation
 
@@ -148,7 +148,7 @@ body {
   @include text ($size: $text-fsize-L, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
 
   // Animation
 
@@ -166,7 +166,7 @@ body {
   @include text ($size: $text-fsize-M, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
 
   // Animation
 
@@ -184,7 +184,7 @@ body {
   @include text ($size: $text-fsize-S, $style: normal, $weight: 400, $height: normal);
 
   // Decoration
-  color: $color-light;
+  color: $color-light-details;
 
   // Animation
 
@@ -276,7 +276,7 @@ img {
   // Various
 
   @include media-wide-desktop {
-    max-width: $width-desktop;
+    padding: 0 $padding-content-desktop;
   }
 
   @include media-desktop {
@@ -296,6 +296,24 @@ img {
 // ==============================================================================================================
 // =========================================== modificators!!! Priority over above ==============================
 // ==============================================================================================================
+
+.body_background-image {
+  // Position
+
+  // block-model
+
+  // Typography
+
+  // Decoration
+  background-image: url('../../assets/audio/Giant 1990 - Time To Burn/Cover.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(10px);
+  // Animation
+
+  // Various
+
+}
 
 .text_light {
   // Position
@@ -534,13 +552,13 @@ img {
 
 }
 
-.text_let-space-0d8px {
+.text_let-space-0d08px {
   // Position
 
   // block-model
 
   // Typography
-  letter-spacing: 0.8px;
+  letter-spacing: 0.08px;
   // Decoration
 
   // Animation
@@ -589,22 +607,8 @@ img {
   // Typography
 
   // Decoration
-
+  overflow: auto;
   // Animation
 
   // Various
-  @include media-tablet-large {
-    // Position
-
-    // block-model
-
-    // Typography
-
-    // Decoration
-    overflow: hidden;
-
-    // Animation
-
-    // Various
-  }
 }
