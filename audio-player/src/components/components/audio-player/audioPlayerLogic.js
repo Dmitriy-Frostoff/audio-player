@@ -153,12 +153,12 @@ export function audioPlayerHandler() {
 
   let currentSongDataIndex = 0;
 
-  // e.g. 'http://localhost:8080/src/assets/audio/Giant%201990%20-%20Time%20To%20Burn/01.%20Thunder%20And%20Lightning.6429.mp3' => 'http://localhost:8080'
-  function getSongOrCoverBaseUri() {
-    // const commonUrl = audioSourse.src.replace(commonDomainPathRegExp, '');
-    // return `${commonUrl}/`;
-    const commonUri = audioSourse.baseURI;
-    return commonUri;
+  function getSongOrCoverBaseUri(commonDomainPathRegExp) {
+    // .baseUri not a friend of yours! It leads to wrong path
+    // e.g. https://rolling-scopes-school.github.io/dmitriy-frostoff-JSFEPRESCHOOL2023Q2/audio-player/index.html
+    // I need https://rolling-scopes-school.github.io/dmitriy-frostoff-JSFEPRESCHOOL2023Q2/audio-player/
+    const commonUrl = audioSourse.src.replace(commonDomainPathRegExp, '');
+    return `${commonUrl}/`;
   }
 
   function getHashedAudioElemPath(objUnhashHashElements, objSongData, objSongDataMethod) {
@@ -174,7 +174,7 @@ export function audioPlayerHandler() {
   }
 
   function getFullPathForSong() {
-    const fullPath = `${getSongOrCoverBaseUri()}${getHashedAudioElemPath(dictionarySongsUncachedCachedFilenames, arrayOfSongDataObj[currentSongDataIndex], `getSongName`)}`;
+    const fullPath = `${getSongOrCoverBaseUri(commonDomainPathRegExp)}${getHashedAudioElemPath(dictionarySongsUncachedCachedFilenames, arrayOfSongDataObj[currentSongDataIndex], `getSongName`)}`;
 
     const fullPathResolveWhiteSpaces = fullPath.replace(/\s+/gi, '%20');
     
