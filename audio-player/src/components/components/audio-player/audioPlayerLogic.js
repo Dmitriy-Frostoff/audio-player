@@ -1,5 +1,7 @@
 export function audioPlayerHandler() {
-  // classnames
+  // classnames and ids
+  const audioPlayerClassName = 'audio-player';
+
   const audioPlayerButtonsContainerClassName = 'audio-player-buttons';
 
   const audioSourseClassName = 'audioSourse';
@@ -12,7 +14,9 @@ export function audioPlayerHandler() {
   const songCurrentTimeClassName = 'song-duration__current';
   const songEntireTimeClassName = 'song-duration__entire';
 
+  const songProgressBarClassName = 'song-progress-bar';
   const songProgressClassName = 'song-progress';
+  const songProgressSliderClassName = 'song-progress-slider';
 
   const buttonPrevClassName = 'button-prev';
   const buttonPlayClassName = 'button-play';
@@ -22,6 +26,8 @@ export function audioPlayerHandler() {
   const buttonStopInnerClassName = 'button-stop-inner';
   const buttonNextClassName = 'button-next';
   // HTML elements
+  const audioPlayer = document.querySelector(`.${audioPlayerClassName}`);
+
   const audioPlayerButtonsContainer = document.querySelector(`.${audioPlayerButtonsContainerClassName}`);
 
   const audioSourse = document.querySelector(`.${audioSourseClassName}`);
@@ -34,7 +40,9 @@ export function audioPlayerHandler() {
   const songCurrentTime = document.querySelector(`.${songCurrentTimeClassName}`);
   const songEntireTime = document.querySelector(`.${songEntireTimeClassName}`);
 
+  const songProgressBar = document.querySelector(`.${songProgressBarClassName}`);
   const songProgress = document.querySelector(`.${songProgressClassName}`);
+  const songProgressSlider = document.querySelector(`.${songProgressSliderClassName}`);
 
   const buttonPrev = document.querySelector(`.${buttonPrevClassName}`);
   const buttonPlay = document.querySelector(`.${buttonPlayClassName}`);
@@ -44,6 +52,8 @@ export function audioPlayerHandler() {
   const buttonStopInner = document.querySelector(`.${buttonStopInnerClassName}`);
   const buttonNext = document.querySelector(`.${buttonNextClassName}`);
   // abstract data
+  
+  // use in play/pause functions
   let isPlaying = false;
 
   // utilities
@@ -150,18 +160,27 @@ export function audioPlayerHandler() {
     // set time (string) into HTML elements
     songCurrentTime.innerText = currentSongTime;
     songEntireTime.innerText = entireSongTime;
+  }
 
-    // call function recursively
-    setTimeout(handleSongTime, 1000);
+  function songPlaybackProgress() {
+    // songProgress.width = % of the playbacked song
+    let currentSongProgressPercent = audioSourse.currentTime / audioSourse.duration * 100;
+    songProgress.style.width = `${currentSongProgressPercent}%`;
+    songProgressSlider.style.left = `${songProgress.offsetWidth}px`;
+  }
+
+  function setManualSongPlaybackProgress(event) {
+    // event.offsetX === current Clicked part width of entire closest html element
+    // event.target.offsetWidth === the whole width of the target element
+    // elem.getBoundingClientRect() === full info about the element dimensions
+    audioSourse.currentTime = event.offsetX / event.target.offsetWidth * audioSourse.duration;
   }
 
   function musicPlayback() {
     if (!isPlaying) {
       playbackAudio();
-      setTimeout(() => handleSongTime(), 1000);
     } else {
       pausePlaybackAudio();
-      setTimeout(() => handleSongTime(), 1000);
     }
   }
 
@@ -174,16 +193,27 @@ export function audioPlayerHandler() {
     songCurrentTime.innerText = changeVisualizationOfSongTime(audioSourse.currentTime);
   }
 
+  // every currentTime song's update
+  audioSourse.addEventListener('timeupdate', (event) => {
+    handleSongTime();
+    songPlaybackProgress();
+  })
+  
   // realization of music player logic
-  audioPlayerButtonsContainer.addEventListener('click', (event) => {
+  audioPlayer.addEventListener('click', (event) => {
     // handle playing music
     if (event.target.closest(`.${buttonPlayClassName}`)) {
       musicPlayback();
     }
-
+    
     // handle stop music
     if (event.target.closest(`.${buttonStopClassName}`)) {
       musicStop();
+    }
+
+    // manual setting song's current time
+    if (event.target.closest(`.${songProgressBarClassName}`)) {
+      setManualSongPlaybackProgress(event);
     }
   })
 
