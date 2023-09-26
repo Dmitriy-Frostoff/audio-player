@@ -1,7 +1,6 @@
 ﻿DAUMPLAYLIST
 playname=E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
-playtime=207583
-topindex=6
+topindex=0
 1*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Giant 1990 - Time To Burn\01. Thunder And Lightning.mp3
 1*played*1
 1*duration2*263000
@@ -69,7 +68,7 @@ topindex=6
 22*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
 22*played*1
 22*duration2*275000
-22*start*207583
+22*start*211067
 23*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Whitesnake 2014 -Best Ballads\05. Til The End Of Time.mp3
 23*played*1
 23*duration2*335000

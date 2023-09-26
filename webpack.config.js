@@ -43,7 +43,6 @@ module.exports = {
     },
   },
   devServer: {
-    // compress: true, // TODO experiment one for me! may cause problems!
     port: 8080,
     host: 'localhost',
   },
@@ -76,6 +75,14 @@ module.exports = {
             }
           },
         ],
+      },
+      {
+        test: /\.(mp3|m4a|wav|flac|ogg)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(dpl|pls)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,

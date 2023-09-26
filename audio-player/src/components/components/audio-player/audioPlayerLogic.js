@@ -1,3 +1,33 @@
+// cach entry e.g. ./book1.png : "src/assets/images/png/favorites/book1.56af.png"
+// filename : filenameAfterBundleWithHash
+const cache = {};
+
+// https://webpack.js.org/guides/dependency-management/#context-module-api
+// to demand webpack use all files in folder in the final bundle
+function importAll(r) {
+  r.keys().forEach((key) => (cache[key] = r(key)));
+}
+// https://webpack.js.org/guides/dependency-management/ 
+importAll(require.context('../../../assets/audio', true, /\.(png|jpeg|jpg|mp3)$/));
+
+function getCashedFilename(cacheObject, keyRegExp, valueRegExp) {
+  const uncachedKeysArr = Object.keys(cacheObject).map(key => key.match(keyRegExp)?.toString() ?? '');
+  const cachedValuesArr = Object.values(cacheObject).map(value => value.match(valueRegExp)?.toString() ?? '');
+  const resultObj = {};
+  
+  for (let i = 0; i < uncachedKeysArr.length; i++) {
+    if (uncachedKeysArr[i]) {
+      resultObj[uncachedKeysArr[i]] = cachedValuesArr[i];
+    }
+  }
+
+  return resultObj;
+}
+
+const dictionaryCoversUncachedCachedFilenames = getCashedFilename(cache, /.+\.(png|jpeg|jpg|gif|svg)/gi, /.+\.[a-z\d]+\.(png|jpeg|jpg|gif|svg)/gi);
+
+const dictionarySongsUncachedCachedFilenames = getCashedFilename(cache, /.+\.(mp3)/gi, /.+\.[a-z\d]+\.(mp3)/gi);
+
 export function audioPlayerHandler() {
   // classnames and ids
   const audioPlayerClassName = 'audio-player';
@@ -56,10 +86,13 @@ export function audioPlayerHandler() {
   // use in play/pause functions
   let isPlaying = false;
 
+  const commonAudioPathRegExp = /(?<=\/audio\/).+$/gi;
+  const commonDomainPathRegExp = /\/src.+$/gi;
+
   // utilities
 
   class SongData {
-    constructor(songName, songAuthorBand, songAlbumName, songAlbumYear, songAlbumCover) {
+    constructor(songAuthorBand, songName, songAlbumName, songAlbumYear, songAlbumCover) {
       this._songName = songName;
       this._songAuthorBand = songAuthorBand;
       this._songAlbumName = songAlbumName;
@@ -114,9 +147,39 @@ export function audioPlayerHandler() {
     new SongData(`Whitesnake`, `05. Til The End Of Time.mp3`, 'Best Ballads', '2014', 'Cover.jpg'),
     new SongData(`Whitesnake`, `09. Sailing Ships.mp3`, 'Best Ballads', '2014', 'Cover.jpg'),
     new SongData(`ария`, `01. Всё, Что Было.mp3`, 'Золотые Баллады', '2011', 'Cover.jpg'),
-    new SongData(`Кипелов & Маврин`, `04. Я Свободен!.mp3`, 'Смутное Время', '1997', 'Cover.jpg'),
+    new SongData(`Кипелов & Маврин`, `04. Я Свободен.mp3`, 'Смутное Время', '1997', 'Cover.jpg'),
     new SongData(`nobody.one`, `08 - The Duck Song.mp3`, 'head movies', '2010', 'Cover.jpg'),
   ]
+
+  let currentSongDataIndex = 0;
+
+  // e.g. 'http://localhost:8080/src/assets/audio/Giant%201990%20-%20Time%20To%20Burn/01.%20Thunder%20And%20Lightning.6429.mp3' => 'http://localhost:8080'
+  function getSongOrCoverBaseUri() {
+    // const commonUrl = audioSourse.src.replace(commonDomainPathRegExp, '');
+    // return `${commonUrl}/`;
+    const commonUri = audioSourse.baseURI;
+    return commonUri;
+  }
+
+  function getHashedAudioElemPath(objUnhashHashElements, objSongData, objSongDataMethod) {
+    // paths relative to .....audio/ folder
+    // obj = {unhashedSongRelativePath: hashedSongRelativePath}
+    const arrayUnhashedHashedElemPaths = Object.entries(objUnhashHashElements);
+    const arrCurrentUnhashedHashedElemPath = arrayUnhashedHashedElemPaths
+      // usage of destructurization
+      .find(([unhashedElemPath, hashedElemPath]) => unhashedElemPath.includes(objSongData[objSongDataMethod]()));
+    const [unhashedElemPath, hashedElemPath] = arrCurrentUnhashedHashedElemPath;
+    
+    return hashedElemPath;
+  }
+
+  function getFullPathForSong() {
+    const fullPath = `${getSongOrCoverBaseUri()}${getHashedAudioElemPath(dictionarySongsUncachedCachedFilenames, arrayOfSongDataObj[currentSongDataIndex], `getSongName`)}`;
+
+    const fullPathResolveWhiteSpaces = fullPath.replace(/\s+/gi, '%20');
+    
+    return fullPathResolveWhiteSpaces;
+  }
 
   function playbackAudio() {
     isPlaying = true;
@@ -132,6 +195,28 @@ export function audioPlayerHandler() {
     audioSourse.pause();
   }
   
+  function playbackPrevAudio() {
+    currentSongDataIndex--;
+
+    if (currentSongDataIndex < 0 ) {
+      currentSongDataIndex = arrayOfSongDataObj.length - 1;
+    }
+
+    audioSourse.src = getFullPathForSong();
+    playbackAudio();
+  }
+  
+  function playbackNextAudio() {
+    currentSongDataIndex++;
+
+    if (currentSongDataIndex > arrayOfSongDataObj.length - 1) {
+      currentSongDataIndex = 0;
+    }
+
+    audioSourse.src = getFullPathForSong();
+    playbackAudio();
+  }
+
   function changeVisualizationOfSongTime(timeInSeconds) {
     function getMinutes(timeInSeconds) {
       // 263.183673s => 4 minutes (precisely 4.38639455 minutes)
@@ -156,6 +241,12 @@ export function audioPlayerHandler() {
     // format song time, string
     currentSongTime = changeVisualizationOfSongTime(currentSongTime);
     entireSongTime = changeVisualizationOfSongTime(entireSongTime);
+
+    // fix problem when audio.duration is not loaded yet
+    // it will display "NaN:NaN"
+    if (entireSongTime === "NaN:NaN") {
+      entireSongTime = '0:00';
+    } 
 
     // set time (string) into HTML elements
     songCurrentTime.innerText = currentSongTime;
@@ -198,7 +289,12 @@ export function audioPlayerHandler() {
     handleSongTime();
     songPlaybackProgress();
   })
-  
+
+  // autoplay next song on previous one end
+  audioSourse.addEventListener('ended', (event) => {
+    playbackNextAudio();
+  })
+
   // realization of music player logic
   audioPlayer.addEventListener('click', (event) => {
     // handle playing music
@@ -210,14 +306,20 @@ export function audioPlayerHandler() {
     if (event.target.closest(`.${buttonStopClassName}`)) {
       musicStop();
     }
+    
+    // handle previous song
+    if (event.target.closest(`.${buttonPrevClassName}`)) {
+      playbackPrevAudio();
+    }
+    
+    // handle next song
+    if (event.target.closest(`.${buttonNextClassName}`)) {
+      playbackNextAudio();
+    }
 
     // manual setting song's current time
     if (event.target.closest(`.${songProgressBarClassName}`)) {
       setManualSongPlaybackProgress(event);
     }
   })
-
-  // console.log( getComputedStyle(songAlbumCover).backgroundImage );
-  // songAlbumCover.style.backgroundImage = `url("http://localhost:8080/src/assets/audio/Giant%201990%20-%20Time%20To%20Burn/Cover%20(2).jpg")`;
-  // console.log( getCommonPathForSongsAndAlbumCovers(songAlbumCover) );
 }
