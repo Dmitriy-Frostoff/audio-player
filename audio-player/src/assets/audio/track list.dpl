@@ -1,6 +1,7 @@
 ﻿DAUMPLAYLIST
-playname=E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
-topindex=0
+playname=E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Кипелов and Маврин 1997 - Смутное Время\04. Я Свободен.mp3
+playtime=2925
+topindex=6
 1*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Giant 1990 - Time To Burn\01. Thunder And Lightning.mp3
 1*played*1
 1*duration2*263000
@@ -68,7 +69,7 @@ topindex=0
 22*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\YJM 1994 - The Seventh Sign\04. Forever One.mp3
 22*played*1
 22*duration2*275000
-22*start*211067
+22*start*103811
 23*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Whitesnake 2014 -Best Ballads\05. Til The End Of Time.mp3
 23*played*1
 23*duration2*335000
@@ -78,9 +79,10 @@ topindex=0
 25*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\ария 2011 - Золотые Баллады\01. Всё, Что Было.mp3
 25*played*1
 25*duration2*306000
-26*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Кипелов and Маврин 1997 - Смутное Время\04. Я Свободен!.mp3
+26*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\Кипелов and Маврин 1997 - Смутное Время\04. Я Свободен.mp3
 26*played*1
 26*duration2*446000
+26*start*2925
 27*file*E:\Code learning\rs_school\dmitriy-frostoff-JSFEPRESCHOOL2023Q2\audio-player\src\assets\audio\nobody.one 2010 - head movies\08 - The Duck Song.mp3
 27*played*1
 27*duration2*345000

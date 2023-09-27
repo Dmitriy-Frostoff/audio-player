@@ -78,11 +78,12 @@
   // Typography
 
   // Decoration
-  background-image: url('../../../assets/audio/Giant\ 1990\ -\ Time\ To\ Burn/Cover.jpg');
+  background-image: url('../../../assets/audio/Giant\ 1990\ -\ Time\ To\ Burn/1990\ -\ Time\ To\ Burn.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 1vw;
   // Animation
+  @extend %transition-basic;
 
   // Various
 
@@ -98,7 +99,7 @@
   // Typography
 
   // Decoration
-
+  overflow: hidden;
   // Animation
 
   // Various
@@ -109,13 +110,14 @@
   // Position
 
   // block-model
-
+  align-self: flex-start;
   // Typography
 
   // Decoration
-
+  white-space: nowrap;
   // Animation
-
+  @extend %transition-basic;
+  animation: text-move-linear-from-left-to-right 16s linear 3s infinite normal;
   // Various
 
 }
@@ -130,6 +132,7 @@
   // Decoration
 
   // Animation
+  @extend %transition-basic;
 
   // Various
 
@@ -145,6 +148,7 @@
   // Decoration
 
   // Animation
+  @extend %transition-basic;
 
   // Various
 
