@@ -349,4 +349,33 @@ export function audioPlayerHandler() {
       setManualSongPlaybackProgress(event);
     }
   })
+
+  // keyboard events for audio-player
+  document.addEventListener('keydown', (event) => {
+    // ctrlKey, shiftKey, altKey, metaKey usage === true or false
+    // e.g. event.ctrlKey === true || event.ctrlKey === false
+    // e.g. won't work event.code === 'ControlLeft'
+    // useful https://stackoverflow.com/questions/67016252/how-can-i-listen-for-two-key-press-event-at-a-same-time-in-javascript
+    // https://learn.javascript.ru/keyboard-events
+    // or just listen to event for 'keydown' or 'keyup'
+    if (event.code === 'Space') {
+      event.preventDefault();
+      musicPlayback();
+    }
+
+    if (event.code === 'ArrowRight' && event.ctrlKey) {
+      event.preventDefault();
+      playbackNextAudio();
+    }
+
+    if (event.code === 'ArrowLeft' && event.ctrlKey) {
+      event.preventDefault();
+      playbackPrevAudio();
+    }
+
+    if (event.code === 'Space' && event.ctrlKey) {
+      event.preventDefault();
+      musicStop();
+    }
+  })
 }
