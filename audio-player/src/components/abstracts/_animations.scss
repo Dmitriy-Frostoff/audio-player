@@ -1,0 +1,92 @@
+@keyframes pulsation {
+  from {
+    transform: scaleX(0.95);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes press {
+  from {
+    transform: scale(100%);
+  }
+
+  50% {
+    transform: scale(80%);
+  }
+
+  to {
+    transform: scale(100%);
+  }
+}
+
+@keyframes move-linear-from-right {
+  from {
+    right: -100%;
+    visibility: hidden;
+  }
+
+  1% {
+    right: 50%;
+    visibility: visible;
+  }
+
+  to {
+    right: 0%;
+    visibility: visible;
+  }
+}
+
+@keyframes move-linear-to-right {
+  from {
+    right: 0%;
+    visibility: visible;
+  }
+
+  1% {
+    right: -50%;
+    visibility: visible;
+  }
+
+  to {
+    right: -100%;
+    visibility: hidden;
+  }
+}
+
+@keyframes text-move-linear-from-left-to-right {
+  // entire player width 50vw!
+  // to understand this animation look in browser devtool!
+  // use two transforms for one similar property - so bad idea
+  // e.g. transform: translateX(*); transform: translateY(*) - bad
+  // e.g. transform: translate(*, *); - good, will work as true
+  from {
+    transform: translate(0, 0);
+  }
+
+  49% {
+    transform: translate(-100%, 0);
+  }
+
+  50% {
+    transform: translate(-50vw, -50vw);
+  }
+
+  51% {
+    transform: translate(70vw, -50vw);
+  }
+
+  52% {
+    transform: translate(50vw, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@mixin animation ($name: pulsation, $duration: 1s, $timing-function: ease, $delay: 0s, $iteration-count: infinite, $direction: normal) {
+  animation: $name $duration $timing-function $delay $iteration-count $direction;
+}

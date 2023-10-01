@@ -1,0 +1,21 @@
+// normalize
+@import "./base/normalize";
+
+//abstracts
+@import "./abstracts/constants";
+@import "./abstracts/placeholders";
+@import "./abstracts/mixins";
+@import "./abstracts/animations";
+
+//layout
+@import "./layout/content-structure";
+
+//base
+@import "./base/typography";
+@import "./base/common";
+@import "./base/buttons";
+
+//components
+@import "./components/main/main";
+@import "./components/audio-player/audio-player-styles";
+@import "./components/footer/footer";

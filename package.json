@@ -1,0 +1,36 @@
+{
+  "name": "dmitriy-frostoff-jsfepreschool2023q2",
+  "version": "1.0.0",
+  "description": "A music player that allows you to play music tracks in turn or flip through them by clicking on buttons. Each music track has a specific background image.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --progress",
+    "dev": "webpack --progress",
+    "prod": "webpack --node-env=production --progress",
+    "style": "sass --watch ./audio-player/src/components/audio-player.scss:./audio-player/dist/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/dmitriy-frostoff-JSFEPRESCHOOL2023Q2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/dmitriy-frostoff-JSFEPRESCHOOL2023Q2/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/dmitriy-frostoff-JSFEPRESCHOOL2023Q2#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.68.0",
+    "sass-loader": "^13.3.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
