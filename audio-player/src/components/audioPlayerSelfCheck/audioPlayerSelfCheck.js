@@ -54,7 +54,7 @@ P.S. много классных медляков ближе к концу))
 
       Stone Sour 2006 - Come What (Ever) May/14. Stone Sour - Wicked Game (Acoustic).mp3
 
-      ile22=YJM 1994 - The Seventh Sign/04. Forever One.mp3
+      YJM 1994 - The Seventh Sign/04. Forever One.mp3
 
       Whitesnake 2014 -Best Ballads/05. Til The End Of Time.mp3
 
